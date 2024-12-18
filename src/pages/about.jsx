@@ -42,7 +42,7 @@ const about = () => {
                 <meta property="og:title" content="Tentang Ridho - Web Developer & Desainer UI/UX" />
                 <meta property="og:description" content="Kenali Ridho lebih dekat, seorang Web Developer dan Desainer UI/UX yang berdedikasi untuk menciptakan solusi digital modern dan menarik." />
                 <meta property="og:image" content="../assets/Logo.png" />
-                <meta property="og:url" content="https://yourwebsite.com/about" />
+                <meta property="og:url" content="https://mrdhkrnwn.vercel.app/about" />
             </Helmet>
             <div className='relative'>
                 <Header />

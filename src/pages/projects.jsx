@@ -47,7 +47,7 @@ const projects = () => {
                 <meta property="og:title" content="Proyek Unggulan - Portfolio Ridho" />
                 <meta property="og:description" content="Eksplorasi berbagai karya dan proyek Ridho di bidang pengembangan website, termasuk aplikasi modern dan desain kreatif." />
                 <meta property="og:image" content="../assets/project-1.png" />
-                <meta property="og:url" content="https://yourwebsite.com/project" />
+                <meta property="og:url" content="https://mrdhkrnwn.vercel.app/project" />
             </Helmet>
             <div className='relative'>
                 <Header />

@@ -84,7 +84,7 @@ const Home = () => {
         <meta property="og:title" content="Moch. Ridho Kurniawan - Web Developer, UI/UX & Graphic Designe" />
         <meta property="og:description" content="Hi, saya Ridho Kurniawan, Web Developer dan UI/UX Designer dari Bogor, Indonesia. Lihat karya saya di bidang pengembangan website, desain grafis, dan proyek kreatif lainnya." />
         <meta property="og:image" content="../assets/Logo.png" />
-        <meta property="og:url" content="https://yourwebsite.com" />
+        <meta property="og:url" content="https://mrdhkrnwn.vercel.app" />
       </Helmet>
       <div className="relative overflow-x-hidden">
         <Header />
