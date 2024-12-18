@@ -23,12 +23,12 @@ import { LinkPreview } from '../components/UI/LinkPreview'
 import { Helmet } from "react-helmet"
 import Calcu from '../assets/project-1.png'
 import PinjamPro from '../assets/Project-2.jpg'
-import { Cover } from "../components/UI/ContainerCover/Cover"
 import { Link } from "react-router-dom"
 import { FadeInDown } from "../libs/variant"
 import { motion } from "framer-motion"
 import Footer from "../components/Footer"
 import { HoverEffect } from "../components/UI/HoverEffect"
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const Home = () => {
   const cards = [
@@ -52,27 +52,27 @@ const Home = () => {
     {
       title: "Pengembangan Website",
       description: "Membangun website responsif dengan performa tinggi menggunakan teknologi terbaru.",
-      link: "https://example.com",
+      link: "https://www.instagram.com/mrdhkrnwn/",
     },
     {
       title: "Desain UI/UX",
       description: "Merancang antarmuka yang intuitif dan ramah pengguna untuk meningkatkan pengalaman pengguna.",
-      link: "https://example.com",
+      link: "https://www.instagram.com/mrdhkrnwn/",
     },
     {
       title: "Desain Grafis",
       description: "Menciptakan desain visual kreatif untuk branding, konten digital, dan promosi.",
-      link: "https://example.com",
+      link: "https://www.instagram.com/mrdhkrnwn/",
     },
     {
       title: "Jaringan (Networking)",
       description: "Mengelola dan mengoptimalkan infrastruktur jaringan agar lebih cepat, stabil, dan aman.",
-      link: "https://example.com",
+      link: "https://www.instagram.com/mrdhkrnwn/",
     },
     {
       title: "DevOps",
       description: "Mengimplementasikan otomatisasi dan kolaborasi untuk efisiensi siklus pengembangan perangkat lunak.",
-      link: "https://example.com",
+      link: "https://www.instagram.com/mrdhkrnwn/",
     },
   ];
 
@@ -248,6 +248,7 @@ const Home = () => {
         </div>
         </HeroHighlight>
         <Navbar />
+        <SpeedInsights />
       </div>
     </>
   )
