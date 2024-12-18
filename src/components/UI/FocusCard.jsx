@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classNames from "classnames"; // Pastikan menginstal dengan `npm install classnames`
+import { Link } from "react-router-dom";
 
 export const Card = React.memo(({ card, index, hovered, setHovered }) => (
     <div
@@ -40,9 +41,9 @@ export const Card = React.memo(({ card, index, hovered, setHovered }) => (
                     {card.paragraf}
                 </p>
                 <div>
-                    <a href={card.github} className="text-[12px] font-semibold underline text-white">
+                    <Link to={card.github} className="text-[12px] font-semibold underline text-white">
                         Github
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

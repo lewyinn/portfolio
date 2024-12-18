@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { encode } from "qss";
 import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
 import { cn } from "../../libs/utils"; // Sesuaikan path ini
+import { Link } from "react-router-dom";
 
 export const LinkPreview = ({
     children,
@@ -63,8 +64,8 @@ export const LinkPreview = ({
                 closeDelay={100}
                 onOpenChange={(open) => setOpen(open)}
             >
-                <a
-                    href={url}
+                <Link
+                    to={url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn("flex", className)}>
@@ -74,7 +75,7 @@ export const LinkPreview = ({
                     >
                         {children}
                     </HoverCardPrimitive.Trigger>
-                </a>
+                </Link>
 
                 <HoverCardPrimitive.Content
                     className="[transform-origin:var(--radix-hover-card-content-transform-origin)]"
