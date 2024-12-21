@@ -9,13 +9,11 @@ export const HoverEffect = ({ items, className }) => {
     return (
         <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-4", className)}>
             {items.map((item, idx) => (
-                <Link
-                    to={item?.link || "#"} // Gunakan 'to' dari react-router-dom atau 'href' biasa
+                <div
                     key={item?.link || idx}
-                    className="relative group block p-2 h-full w-full"
+                    className="relative group block p-2 h-full w-full cursor-pointer"
                     onMouseEnter={() => setHoveredIndex(idx)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                >
+                    onMouseLeave={() => setHoveredIndex(null)}>
                     <AnimatePresence>
                         {hoveredIndex === idx && (
                             <motion.span
@@ -36,7 +34,7 @@ export const HoverEffect = ({ items, className }) => {
                         <CardTitle>{item.title}</CardTitle>
                         <CardDescription>{item.description}</CardDescription>
                     </Card>
-                </Link>
+                </div>
             ))}
         </div>
     );

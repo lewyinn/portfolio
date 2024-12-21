@@ -53,7 +53,7 @@ const projects = () => {
                 <Header />
                 <HeroHighlight containerClassName="custom-container-class" className="custom-class px-4 py-32 md:py-[169.5px]">
                     <motion.div 
-                        variants={FadeInDown(0.5)} initial="hidden" whileInView="show" viewport={{ once: true }}
+                        variants={FadeInDown(0.2)} initial="hidden" whileInView="show" viewport={{ once: true }}
                         className="flex flex-col justify-start items-start gap-2 w-auto lg:w-[980px]">
                         <h1 className="flex justify-start items-center gap-3 text-black dark:text-white text-xl lg:text-3xl font-bold leading-normal">
                             <IconFolderFilled className="h-10 w-10 text-neutral-800 dark:text-slate-300 hover:text-blue-600" />

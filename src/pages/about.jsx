@@ -50,7 +50,7 @@ const about = () => {
                 <div className='container flex flex-col w-auto lg:w-[980px] gap-16'>
                     {/* About Me Section */}
                     <motion.div 
-                        variants={FadeInDown(0.5)} initial="hidden" whileInView="show" viewport={{ once: true }}
+                        variants={FadeInDown(0.2)} initial="hidden" whileInView="show" viewport={{ once: true }}
                         className="flex flex-col justify-center items-start gap-2">
                         <h1 className="flex justify-start items-center gap-3 text-black dark:text-white text-xl lg:text-3xl font-bold leading-normal">
                             <IconUserScreen className="h-10 w-10 text-neutral-800 dark:text-slate-300 hover:text-blue-600" />
@@ -73,7 +73,7 @@ const about = () => {
 
                     {/* Tech Section */}
                     <motion.div 
-                        variants={FadeInDown(0.5)} initial="hidden" whileInView="show" viewport={{ once: true }}
+                        variants={FadeInDown(0.2)} initial="hidden" whileInView="show" viewport={{ once: true }}
                         className="flex flex-col justify-center items-start gap-2">
                         <h1 className="flex justify-start items-center gap-3 text-black dark:text-white text-xl lg:text-3xl font-bold leading-normal">
                             <IconBrandStackshare className="h-10 w-10 text-neutral-800 dark:text-slate-300 hover:text-blue-600" />
@@ -139,7 +139,7 @@ const about = () => {
 
                     {/* Timeline Section */}
                     <motion.div 
-                        variants={FadeInDown(0.5)} initial="hidden" whileInView="show" viewport={{ once: true }}
+                        variants={FadeInDown(0.2)} initial="hidden" whileInView="show" viewport={{ once: true }}
                         className='flex flex-col justify-center items-center'>
                         <Timeline data={data} />
                     </motion.div>
