@@ -24,8 +24,6 @@ import { Helmet } from "react-helmet"
 import Calcu from '../assets/project-1.png'
 import PinjamPro from '../assets/Project-2.jpg'
 import { Link } from "react-router-dom"
-import { FadeInDown } from "../libs/variant"
-import { motion } from "framer-motion"
 import Footer from "../components/Footer"
 import { HoverEffect } from "../components/UI/HoverEffect"
 import { SpeedInsights } from '@vercel/speed-insights/react';
@@ -90,7 +88,7 @@ const Home = () => {
         <Header />
         <HeroHighlight containerClassName="custom-container-class flex items-center justify-center" className="custom-class px-4 py-32 md:py-64">
         <div className="container flex flex-col gap-36 md:gap-60 lg:gap-80 w-auto lg:w-[980px]">
-            <div
+            <div id="hero-section"
               className="flex flex-col gap-14">
               <div className="flex flex-col justify-center items-start">
                 <h1 className="text-black dark:text-white text-xl lg:text-3xl font-bold leading-normal">
@@ -98,7 +96,6 @@ const Home = () => {
                 </h1>
                 <p className="text-neutral-800 dark:text-neutral-300 text-base lg:text-lg font-semibold leading-normal py-4 ">
                   I'm a <span className="text-black dark:text-white">Web Developer</span> & <span className="text-black dark:text-white">Graphic Designer</span> based in Bogor, Indonesia.  
-                  Saya memiliki pengalaman lebih dari 1 tahun dalam membangun situs web yang responsif, interaktif, dan ramah pengguna.  
                   Keahlian saya berfokus pada pengembangan web dan desain grafis, serta saya memiliki semangat besar untuk mempelajari teknologi baru demi meningkatkan keterampilan saya.
                 </p>
                 <Link to={'/about'}
@@ -137,7 +134,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div
+            <div id="about-section"
               className="flex flex-col gap-14">
               <div className="flex flex-col justify-center items-start gap-2">
                 <h1 className="flex justify-start items-center gap-3 text-black dark:text-white text-xl lg:text-3xl font-bold leading-normal">
@@ -216,7 +213,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div
+            <div id="services-section"
               className="flex flex-col justify-center items-start gap-2 pt-3">
               <h1 className="flex justify-start items-center gap-3 text-black dark:text-white text-xl lg:text-3xl font-bold leading-normal">
                 <IconBriefcaseFilled className="h-10 w-10 text-slate-800 dark:text-slate-300 hover:text-blue-600" />
@@ -228,7 +225,7 @@ const Home = () => {
               <span className="h-1.5 w-14 bg-orange-600 rounded-md"></span>
               <HoverEffect items={projects} />
             </div>
-            <div
+            <div id="projects-section"
               className="flex flex-col justify-center items-start gap-2 pt-3">
               <h1 className="flex justify-start items-center gap-3 text-black dark:text-white text-xl lg:text-3xl font-bold leading-normal">
                 <IconFolderFilled className="h-10 w-10 text-slate-800 dark:text-slate-300 hover:text-blue-600" />
