@@ -90,8 +90,7 @@ const Home = () => {
         <Header />
         <HeroHighlight containerClassName="custom-container-class flex items-center justify-center" className="custom-class px-4 py-32 md:py-64">
         <div className="container flex flex-col gap-36 md:gap-60 lg:gap-80 w-auto lg:w-[980px]">
-            <motion.div 
-              variants={FadeInDown(0.2)} initial="hidden" whileInView="show" viewport={{ once: true }}
+            <div
               className="flex flex-col gap-14">
               <div className="flex flex-col justify-center items-start">
                 <h1 className="text-black dark:text-white text-xl lg:text-3xl font-bold leading-normal">
@@ -137,9 +136,8 @@ const Home = () => {
                   </LinkPreview>
                 </div>
               </div>
-            </motion.div>
-            <motion.div 
-              variants={FadeInDown(0.2)} initial="hidden" whileInView="show" viewport={{ once: true }}
+            </div>
+            <div
               className="flex flex-col gap-14">
               <div className="flex flex-col justify-center items-start gap-2">
                 <h1 className="flex justify-start items-center gap-3 text-black dark:text-white text-xl lg:text-3xl font-bold leading-normal">
@@ -217,9 +215,8 @@ const Home = () => {
                   </HoverBorderGradient>
                 </div>
               </div>
-            </motion.div>
-            <motion.div 
-              variants={FadeInDown(0.2)} initial="hidden" whileInView="show" viewport={{ once: true }}
+            </div>
+            <div
               className="flex flex-col justify-center items-start gap-2 pt-3">
               <h1 className="flex justify-start items-center gap-3 text-black dark:text-white text-xl lg:text-3xl font-bold leading-normal">
                 <IconBriefcaseFilled className="h-10 w-10 text-slate-800 dark:text-slate-300 hover:text-blue-600" />
@@ -230,9 +227,8 @@ const Home = () => {
               </p>
               <span className="h-1.5 w-14 bg-orange-600 rounded-md"></span>
               <HoverEffect items={projects} />
-            </motion.div>
-            <motion.div 
-              variants={FadeInDown(0.2)} initial="hidden" whileInView="show" viewport={{ once: true }}
+            </div>
+            <div
               className="flex flex-col justify-center items-start gap-2 pt-3">
               <h1 className="flex justify-start items-center gap-3 text-black dark:text-white text-xl lg:text-3xl font-bold leading-normal">
                 <IconFolderFilled className="h-10 w-10 text-slate-800 dark:text-slate-300 hover:text-blue-600" />
@@ -243,7 +239,7 @@ const Home = () => {
               </p>
               <span className="h-1.5 w-14 bg-orange-600 rounded-md mb-4"></span>
                 <FocusCards cards={cards} />
-            </motion.div>
+            </div>
             <Footer />
         </div>
         </HeroHighlight>

@@ -49,8 +49,7 @@ const about = () => {
                 <HeroHighlight containerClassName="custom-container-class" className="custom-class px-4 py-32 md:py-[168px]">
                 <div className='container flex flex-col w-auto lg:w-[980px] gap-16'>
                     {/* About Me Section */}
-                    <motion.div 
-                        variants={FadeInDown(0.2)} initial="hidden" whileInView="show" viewport={{ once: true }}
+                    <div
                         className="flex flex-col justify-center items-start gap-2">
                         <h1 className="flex justify-start items-center gap-3 text-black dark:text-white text-xl lg:text-3xl font-bold leading-normal">
                             <IconUserScreen className="h-10 w-10 text-neutral-800 dark:text-slate-300 hover:text-blue-600" />
@@ -69,11 +68,10 @@ const about = () => {
                             Motivasi saya adalah menciptakan <span className='text-black dark:text-white'>solusi digital inovatif</span> yang memberikan pengalaman pengguna terbaik. Dengan kombinasi  
                             <span className='text-black dark:text-white'> teknologi web</span> dan <span className='text-black dark:text-white'>desain grafis</span>, saya bertekad membantu klien mewujudkan ide kreatif menjadi kenyataan.
                         </p>
-                    </motion.div>
+                    </div>
 
                     {/* Tech Section */}
-                    <motion.div 
-                        variants={FadeInDown(0.2)} initial="hidden" whileInView="show" viewport={{ once: true }}
+                    <div
                         className="flex flex-col justify-center items-start gap-2">
                         <h1 className="flex justify-start items-center gap-3 text-black dark:text-white text-xl lg:text-3xl font-bold leading-normal">
                             <IconBrandStackshare className="h-10 w-10 text-neutral-800 dark:text-slate-300 hover:text-blue-600" />
@@ -135,14 +133,13 @@ const about = () => {
                                 <span className='text-sm lg:text-base font-medium'>Photoshop</span>
                             </HoverBorderGradient>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Timeline Section */}
-                    <motion.div 
-                        variants={FadeInDown(0.2)} initial="hidden" whileInView="show" viewport={{ once: true }}
+                    <div
                         className='flex flex-col justify-center items-center'>
                         <Timeline data={data} />
-                    </motion.div>
+                    </div>
                     <Footer />
                 </div>
                 </HeroHighlight>
