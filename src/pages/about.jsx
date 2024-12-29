@@ -1,6 +1,11 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import { Helmet } from 'react-helmet';
+import Header from '../components/Header';
 import { HeroHighlight } from '../components/UI/HeroHighlights'
+import { HoverBorderGradient } from '../components/UI/ButtonGradient'
+import { Timeline } from '../components/UI/Timeline';
+import Footer from '../components/Footer';
 import {
     IconUserScreen,
     IconBrandStackshare
@@ -9,13 +14,6 @@ import { FaHtml5, FaCss3Alt, FaBootstrap, FaPhp, FaReact, FaLaravel, FaFigma, } 
 import { IoLogoJavascript } from "react-icons/io5";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { SiAdobephotoshop } from "react-icons/si";
-import { HoverBorderGradient } from '../components/UI/ButtonGradient'
-import { Helmet } from 'react-helmet';
-import Header from '../components/Header';
-import { Timeline } from '../components/UI/Timeline';
-import { motion } from 'framer-motion';
-import { FadeInDown } from '../libs/variant';
-import Footer from '../components/Footer';
 
 const about = () => {
     const data = [

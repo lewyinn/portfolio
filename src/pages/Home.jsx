@@ -1,8 +1,17 @@
 import React from "react"
+import { Link } from "react-router-dom"
+import { Helmet } from "react-helmet"
+import { HeroHighlight } from "../components/UI/HeroHighlights"
 import Navbar from "../components/Navbar"
 import Header from "../components/Header"
-import { HeroHighlight, Highlight } from "../components/UI/HeroHighlights"
+import { LinkPreview } from '../components/UI/LinkPreview'
 import { FocusCards } from '../components/UI/FocusCard'
+import { HoverBorderGradient } from '../components/UI/ButtonGradient'
+import { HoverEffect } from "../components/UI/HoverEffect"
+import { SpeedInsights } from '@vercel/speed-insights/react';
+import Footer from "../components/Footer"
+import Calcu from '../assets/project-1.png'
+import PinjamPro from '../assets/Project-2.jpg'
 import {
   IconSend,
   IconBrandLinkedinFilled,
@@ -18,15 +27,6 @@ import { FaHtml5, FaCss3Alt, FaBootstrap, FaPhp, FaReact, FaLaravel, FaFigma, } 
 import { IoLogoJavascript } from "react-icons/io5";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { SiAdobephotoshop } from "react-icons/si";
-import { HoverBorderGradient } from '../components/UI/ButtonGradient'
-import { LinkPreview } from '../components/UI/LinkPreview'
-import { Helmet } from "react-helmet"
-import Calcu from '../assets/project-1.png'
-import PinjamPro from '../assets/Project-2.jpg'
-import { Link } from "react-router-dom"
-import Footer from "../components/Footer"
-import { HoverEffect } from "../components/UI/HoverEffect"
-import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const Home = () => {
   const cards = [
@@ -115,22 +115,22 @@ const Home = () => {
                 </p>
                 <span className="h-1.5 w-14 bg-orange-600 rounded-md mb-4"></span>
                 <div className="flex flex-wrap justify-start items-center gap-6 px-2">
-                  <LinkPreview url="https://www.linkedin.com/in/moch-ridho-kurniawan" className="text-base lg:text-lg font-bold">
-                    <IconBrandLinkedinFilled className="h-5 w-5 text-neutral-900 dark:text-neutral-300" />
-                    Linkedin
-                  </LinkPreview>
-                  <LinkPreview url="https://www.instagram.com/mrdhkrnwn/" className="text-base lg:text-lg font-bold">
-                    <IconBrandInstagram className="h-5 w-5 text-neutral-900 dark:text-neutral-300" />
-                    Instagram
-                  </LinkPreview>
-                  <LinkPreview url="https://github.com/lewyinn" className="text-base lg:text-lg font-bold">
-                    <IconBrandGithub className="h-5 w-5 text-neutral-900 dark:text-neutral-300" />
-                    GitHub
-                  </LinkPreview>
-                  <LinkPreview url="https://discord.com/" className="text-base lg:text-lg font-bold">
-                    <IconBrandDiscordFilled className="h-5 w-5 text-neutral-900 dark:text-neutral-300" />
-                    Discord
-                  </LinkPreview>
+                    <LinkPreview url="https://www.linkedin.com/in/moch-ridho-kurniawan" className="text-base lg:text-lg font-bold">
+                      <IconBrandLinkedinFilled className="h-5 w-5 text-neutral-900 dark:text-neutral-300" />
+                      Linkedin
+                    </LinkPreview>
+                    <LinkPreview url="https://www.instagram.com/mrdhkrnwn/" className="text-base lg:text-lg font-bold">
+                      <IconBrandInstagram className="h-5 w-5 text-neutral-900 dark:text-neutral-300" />
+                      Instagram
+                    </LinkPreview>
+                    <LinkPreview url="https://github.com/lewyinn" className="text-base lg:text-lg font-bold">
+                      <IconBrandGithub className="h-5 w-5 text-neutral-900 dark:text-neutral-300" />
+                      GitHub
+                    </LinkPreview>
+                    <LinkPreview url="https://discord.com/" className="text-base lg:text-lg font-bold">
+                      <IconBrandDiscordFilled className="h-5 w-5 text-neutral-900 dark:text-neutral-300" />
+                      Discord
+                    </LinkPreview>
                 </div>
               </div>
             </div>
@@ -160,56 +160,56 @@ const Home = () => {
                 </p>
                 <span className="h-1.5 w-14 bg-orange-600 rounded-md mb-4"></span>
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 px-2">
-                  <HoverBorderGradient containerClassName="rounded-xl" as="button"
-                    className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
-                    <FaHtml5 className="h-6 w-6 text-orange-400 hover:text-blue-600" />
-                    <span className='text-sm lg:text-base font-medium'>HTML5</span>
-                  </HoverBorderGradient>
-                  <HoverBorderGradient containerClassName="rounded-xl" as="button"
-                    className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
-                    <FaCss3Alt className="h-6 w-6 text-blue-600 hover:text-orange-600" />
-                    <span className='text-sm lg:text-base font-medium'>CSS3</span>
-                  </HoverBorderGradient>
-                  <HoverBorderGradient containerClassName="rounded-xl" as="button"
-                    className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
-                    <IoLogoJavascript className="h-6 w-6 text-yellow-400 hover:text-blue-600" />
-                    <span className='text-sm lg:text-base font-medium'>JavaScript</span>
-                  </HoverBorderGradient>
-                  <HoverBorderGradient containerClassName="rounded-xl" as="button"
-                    className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
-                    <FaBootstrap className="h-6 w-6 text-purple-600 hover:text-blue-600" />
-                    <span className='text-sm lg:text-base font-medium'>Boostrap</span>
-                  </HoverBorderGradient>
-                  <HoverBorderGradient containerClassName="rounded-xl" as="button"
-                    className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
-                    <RiTailwindCssFill className="h-6 w-6 text-blue-400 hover:text-orange-600" />
-                    <span className='text-sm lg:text-base font-medium'>Tailwind CSS</span>
-                  </HoverBorderGradient>
-                  <HoverBorderGradient containerClassName="rounded-xl" as="button"
-                    className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
-                    <FaPhp className="h-6 w-6 text-blue-400 hover:text-blue-600" />
-                    <span className='text-sm lg:text-base font-medium'>PHP</span>
-                  </HoverBorderGradient>
-                  <HoverBorderGradient containerClassName="rounded-xl" as="button"
-                    className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
-                    <FaReact className="h-6 w-6 text-blue-500 hover:text-red-600" />
-                    <span className='text-sm lg:text-base font-medium'>React JS</span>
-                  </HoverBorderGradient>
-                  <HoverBorderGradient containerClassName="rounded-xl" as="button"
-                    className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
-                    <FaLaravel className="h-6 w-6 text-red-600 hover:text-blue-500" />
-                    <span className='text-sm lg:text-base font-medium'>Laravel</span>
-                  </HoverBorderGradient>
-                  <HoverBorderGradient containerClassName="rounded-xl" as="button"
-                    className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
-                    <FaFigma className="h-6 w-6 text-orange-400 hover:text-blue-600" />
-                    <span className='text-sm lg:text-base font-medium'>Figma</span>
-                  </HoverBorderGradient>
-                  <HoverBorderGradient containerClassName="rounded-xl" as="button"
-                    className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
-                    <SiAdobephotoshop className="h-6 w-6 text-blue-700 hover:text-red-600" />
-                    <span className='text-sm lg:text-base font-medium'>Photoshop</span>
-                  </HoverBorderGradient>
+                    <HoverBorderGradient containerClassName="rounded-xl" as="button"
+                      className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
+                      <FaHtml5 className="h-6 w-6 text-orange-400 hover:text-blue-600" />
+                      <span className='text-sm lg:text-base font-medium'>HTML5</span>
+                    </HoverBorderGradient>
+                    <HoverBorderGradient containerClassName="rounded-xl" as="button"
+                      className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
+                      <FaCss3Alt className="h-6 w-6 text-blue-600 hover:text-orange-600" />
+                      <span className='text-sm lg:text-base font-medium'>CSS3</span>
+                    </HoverBorderGradient>
+                    <HoverBorderGradient containerClassName="rounded-xl" as="button"
+                      className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
+                      <IoLogoJavascript className="h-6 w-6 text-yellow-400 hover:text-blue-600" />
+                      <span className='text-sm lg:text-base font-medium'>JavaScript</span>
+                    </HoverBorderGradient>
+                    <HoverBorderGradient containerClassName="rounded-xl" as="button"
+                      className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
+                      <FaBootstrap className="h-6 w-6 text-purple-600 hover:text-blue-600" />
+                      <span className='text-sm lg:text-base font-medium'>Boostrap</span>
+                    </HoverBorderGradient>
+                    <HoverBorderGradient containerClassName="rounded-xl" as="button"
+                      className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
+                      <RiTailwindCssFill className="h-6 w-6 text-blue-400 hover:text-orange-600" />
+                      <span className='text-sm lg:text-base font-medium'>Tailwind CSS</span>
+                    </HoverBorderGradient>
+                    <HoverBorderGradient containerClassName="rounded-xl" as="button"
+                      className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
+                      <FaPhp className="h-6 w-6 text-blue-400 hover:text-blue-600" />
+                      <span className='text-sm lg:text-base font-medium'>PHP</span>
+                    </HoverBorderGradient>
+                    <HoverBorderGradient containerClassName="rounded-xl" as="button"
+                      className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
+                      <FaReact className="h-6 w-6 text-blue-500 hover:text-red-600" />
+                      <span className='text-sm lg:text-base font-medium'>React JS</span>
+                    </HoverBorderGradient>
+                    <HoverBorderGradient containerClassName="rounded-xl" as="button"
+                      className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
+                      <FaLaravel className="h-6 w-6 text-red-600 hover:text-blue-500" />
+                      <span className='text-sm lg:text-base font-medium'>Laravel</span>
+                    </HoverBorderGradient>
+                    <HoverBorderGradient containerClassName="rounded-xl" as="button"
+                      className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
+                      <FaFigma className="h-6 w-6 text-orange-400 hover:text-blue-600" />
+                      <span className='text-sm lg:text-base font-medium'>Figma</span>
+                    </HoverBorderGradient>
+                    <HoverBorderGradient containerClassName="rounded-xl" as="button"
+                      className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 w-full">
+                      <SiAdobephotoshop className="h-6 w-6 text-blue-700 hover:text-red-600" />
+                      <span className='text-sm lg:text-base font-medium'>Photoshop</span>
+                    </HoverBorderGradient>
                 </div>
               </div>
             </div>
@@ -235,7 +235,7 @@ const Home = () => {
                 Proyek yang Telah Saya Buat.
               </p>
               <span className="h-1.5 w-14 bg-orange-600 rounded-md mb-4"></span>
-                <FocusCards cards={cards} />
+              <FocusCards cards={cards} />
             </div>
             <Footer />
         </div>

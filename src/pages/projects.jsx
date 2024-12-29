@@ -1,16 +1,14 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import { HeroHighlight, Highlight } from '../components/UI/HeroHighlights'
+import { Helmet } from 'react-helmet'
+import Header from '../components/Header';
+import { HeroHighlight } from '../components/UI/HeroHighlights'
 import { IconFolderFilled } from '@tabler/icons-react'
 import { FocusCards } from '../components/UI/FocusCard'
+import Footer from '../components/Footer'
 import Calcu from '../assets/project-1.png'
 import PinjamPro from '../assets/Project-2.jpg'
 import ComingSoon from '../assets/Project-3.jpg'
-import { Helmet } from 'react-helmet'
-import Header from '../components/Header';
-import { motion } from 'framer-motion'
-import { FadeInDown } from '../libs/variant'
-import Footer from '../components/Footer'
 
 const projects = () => {
     const cards = [
