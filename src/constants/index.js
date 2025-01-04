@@ -55,6 +55,7 @@ export const PROJECTS = [
     description:
       "Aplikasi kalkulator untuk Perhitungan Aritmatika Dasar dan Biner.",
     technologies: ["HTML", "CSS", "JavaScript"],
+    href: 'https://github.com/lewyinn/calculator'
   },
   {
     title: "Sistem Peminjaman Barang",
@@ -62,6 +63,7 @@ export const PROJECTS = [
     description:
       "Website untuk mengelola peminjaman barang atau buku.",
     technologies: ["Laravel", "Tailwind", "Flowbite", "MySQL"],
+    href: 'https://github.com/lewyinn/laravel-web-app-pinjamitems'
   },
   {
     title: "Proyek Mendatang",
@@ -69,6 +71,7 @@ export const PROJECTS = [
     description:
       "Proyek menarik lainnya sedang dalam tahap pengembangan. Pantau terus untuk update terbaru!",
     technologies: ["Coming Soon"],
+    href: 'https://github.com/lewyinn'
   },
 ];
 

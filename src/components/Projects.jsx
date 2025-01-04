@@ -35,13 +35,17 @@ const Projects = () => {
                                 {project.title}
                             </h3>
                             <p className='mb-4 text-stone-400'>{project.description}</p>
-                            <div className='flex flex-wrap'>
+                            <div className='flex flex-wrap mb-4'>
                                 {project.technologies.map((tech, index) => (
                                     <span className='mr-2 rounded bg-stone-900 p-2 text-sm font-medium text-stone-300' key={index}>
                                         {tech}
                                     </span>
                                 ))}
                             </div>
+                            <a href={project.href} target='_blank' className='px-8 py-2 w-fit grid place-items-center ring-inset ring-1 ring-zinc-50/50 rounded-lg
+                                transition-[background-color,color] hover:bg-zinc-50 hover:text-zinc-950'>
+                                View
+                            </a>
                         </motion.div>
                     </div>
                 ))}

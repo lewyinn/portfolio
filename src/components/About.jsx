@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import ProfileImage from '../assets/raviKumarProfile.webp';
+import ProfileImage from '../assets/ProfileRidho.webp';
 import { ABOUT_DESC, ABOUT_TEXT } from '../constants';
 import { FaChild, FaFile } from "react-icons/fa";
 import { FaMapLocationDot } from 'react-icons/fa6';
