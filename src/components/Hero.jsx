@@ -80,8 +80,11 @@ const Hero = () => {
                             </span>
                         </h3>
                         <motion.p 
+                            initial="hidden"
+                            animate="visible"
+                            transition={{ delay: 0.3 }} 
                             variants={childVariants}
-                            className='my-2 max-w-lg py-6 text-xl leading-relaxed tracking-tighter text-stone-300'>
+                            className='my-2 max-w-lg py-6 md:text-xl text-lg leading-relaxed tracking-tighter text-stone-300'>
                             {HERO_CONTENT}
                         </motion.p>
                         <motion.a variants={childVariants}
