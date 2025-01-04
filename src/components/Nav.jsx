@@ -70,7 +70,7 @@ const Nav = () => {
                 <div className="hidden lg:flex items-center justify-center gap-6 text-lg font-medium">
                     {navLinks.map((link, index) => (
                         <div className="relative inline-block" key={index}>
-                            <Link
+                            <Link href={link.href}
                                 to={link.href}
                                 spy={true}
                                 smooth={true}
@@ -153,7 +153,7 @@ const mobileLinkVars = {
 
 const MobileNavLink = ({ title, href, closeMenu }) => (
     <motion.div variants={mobileLinkVars} className="text-4xl relative inline-block">
-        <Link to={href} spy={true} smooth={true} offset={-200} activeClass="text-white active"
+        <Link href={href} to={href} spy={true} smooth={true} offset={-200} activeClass="text-white active"
             className="peer cursor-pointer hover:text-gray-200 transition text-gray-400" onClick={closeMenu}>
             {title}
         </Link>
