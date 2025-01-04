@@ -72,13 +72,13 @@ const Hero = () => {
                             className='pb-2 text-4xl tracking-tighter lg:text-7xl text-white'> 
                             I'm Ridho Kurniawan
                         </motion.h2>
-                        <h4 
+                        <h3 
                             className='bg-gradient-to-r from-[#7b0ce2] to-[#0c45e2] bg-clip-text tracking-tight text-transparent text-3xl lg:text-6xl  font-semibold'>
                             {textJob}
                             <span>
                                 <Cursor cursorStyle='|' />
                             </span>
-                        </h4>
+                        </h3>
                         <motion.p 
                             variants={childVariants}
                             className='my-2 max-w-lg py-6 text-xl leading-relaxed tracking-tighter text-stone-300'>
