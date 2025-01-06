@@ -42,7 +42,7 @@ const Contact = () => {
                                 initial="initial"
                                 animate="animate"
                                 variants={iconVariants(2.5)}
-                                href='https://www.linkedin.com/ridhokurniawan/'
+                                href='https://www.linkedin.com/in/moch-ridho-kurniawan'
                                 target='_blank'
                                 rel='noopener noreferrer'
                                 aria-label='Linkedin'>
@@ -53,7 +53,7 @@ const Contact = () => {
                                 initial="initial"
                                 animate="animate"
                                 variants={iconVariants(3)}
-                                href='https://www.github.com/ridhokurniawan/'
+                                href='https://github.com/lewyinn'
                                 target='_blank'
                                 rel='noopener noreferrer'
                                 aria-label='Github'>
@@ -75,7 +75,7 @@ const Contact = () => {
                                 initial="initial"
                                 animate="animate"
                                 variants={iconVariants(4)}
-                                href='https://www.twitter.com/ridhokurniawan/'
+                                href='https://www.x.com/'
                                 target='_blank'
                                 rel='noopener noreferrer'
                                 aria-label='Twitter'>
