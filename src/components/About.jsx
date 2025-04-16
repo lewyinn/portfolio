@@ -28,18 +28,23 @@ const About = () => {
                     initial={{ opacity: 0, x: -100 }}
                     transition={{ duration: 1 }}
                     className='w-full lg:w-2/5 flex items-center justify-center'>
-                    <img src={ProfileImage}
-                        width={480}
-                        height={480}
-                        alt={ProfileImage}
-                        className='mb-6 rounded' />
+                    <picture>
+                        <source srcSet="/path/to/small-profile.webp" media="(max-width: 768px)" />
+                        <img
+                            src={ProfileImage}
+                            width={480}
+                            height={480}
+                            alt={ProfileImage}
+                            loading="lazy"
+                            className='mb-6 rounded'/>
+                    </picture>
                 </motion.div>
                 <motion.div
                     whileInView={{ opacity: 1, x: 0 }}
                     initial={{ opacity: 0, x: 100 }}
                     transition={{ duration: 1 }}
                     className='w-full max-w-full lg:w-2/4 flex flex-col gap-8 items-center lg:items-stretch'>
-                    <div className='flex justify-between gap-2 lg:gap-0'>
+                    <div className='grid grid-cols-3 gap-2'>
                         {ABOUT_DESC.map((about, index) => (
                             <div key={index}
                                 className="flex flex-col gap-2 justify-center items-center px-2 lg:px-2 py-4 lg:py-4 

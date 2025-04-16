@@ -14,6 +14,7 @@ const App = () => {
   return (
     <>
       <Helmet>
+        <link rel="preload" href="./assets/ProfileRidho.webp" as="image" />
         <title>Ridho Kurniawan - Web Developer & UI/UX Designer | Portfolio</title>
         <meta name="description" content="Portfolio Ridho Kurniawan - Web Developer dan Desainer Grafis dari Bogor, Indonesia. Lihat karya, layanan, dan proyek kreatif di bidang pengembangan website dan desain UI/UX." />
         <meta property="og:title" content="Moch. Ridho Kurniawan - Web Developer, UI/UX & Graphic Designe" />

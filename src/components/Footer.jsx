@@ -6,7 +6,7 @@ const Footer = () => {
         <section className='flex flex-col justify-center items-center gap-4 py-8'>
             <div className="flex items-center">
                 <a href="/" aria-label="Home">
-                    <img src={Logo} alt="Logo" className="w-14 lg:w-16" />
+                    <img src={Logo} alt="Logo" loading='lazy' className="w-14 lg:w-16" />
                 </a>
             </div>
             <div className='flex flex-col justify-center items-center text-center gap-1 lg:gap-0'>
