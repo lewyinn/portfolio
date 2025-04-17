@@ -1,6 +1,5 @@
 import React from 'react'
 import { Helmet } from 'react-helmet';
-import Nav from './components/Nav'
 import Hero from './components/Hero';
 import Technologies from './components/Technologies';
 import Projects from './components/Projects';
@@ -9,6 +8,8 @@ import Contact from './components/Contact';
 import About from './components/About';
 import Footer from './components/Footer';
 import ScrollTop from './components/ScrollTop';
+import { Navbar } from './components/Navbar';
+import Project from './components/Projek';
 
 const App = () => {
   return (
@@ -29,11 +30,12 @@ const App = () => {
         </div>
 
         <div className='container mx-auto px-8'>
-          <Nav />
+          <Navbar />
           <Hero />
           <About />
           <Technologies />
-          <Projects />
+          {/* <Projects /> */}
+          <Project />
           <Experience />
           <Contact />
         </div>

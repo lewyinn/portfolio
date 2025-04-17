@@ -55,7 +55,10 @@ export const PROJECTS = [
     description:
       "Aplikasi kalkulator untuk Perhitungan Aritmatika Dasar dan Biner.",
     technologies: ["HTML", "CSS", "JavaScript"],
-    href: 'https://github.com/lewyinn/calculator'
+    href: 'https://github.com/lewyinn/calculator',
+    contributors: [
+      'https://avatars.githubusercontent.com/u/148733473?s=400&u=bae9efff8f218be3140167a85a746aa0c4b36c65&v=4',
+    ],
   },
   {
     title: "Sistem Peminjaman Barang",
@@ -63,7 +66,10 @@ export const PROJECTS = [
     description:
       "Website untuk mengelola peminjaman barang atau buku.",
     technologies: ["Laravel", "Tailwind", "Flowbite", "MySQL"],
-    href: 'https://github.com/lewyinn/laravel-web-app-pinjamitems'
+    href: 'https://github.com/lewyinn/laravel-web-app-pinjamitems',
+    contributors: [
+      'https://avatars.githubusercontent.com/u/148733473?s=400&u=bae9efff8f218be3140167a85a746aa0c4b36c65&v=4',
+    ],
   },
   {
     title: "Proyek Mendatang",
@@ -71,7 +77,10 @@ export const PROJECTS = [
     description:
       "Proyek menarik lainnya sedang dalam tahap pengembangan. Pantau terus untuk update terbaru!",
     technologies: ["Coming Soon"],
-    href: 'https://github.com/lewyinn'
+    href: 'https://github.com/lewyinn',
+    contributors: [
+      'https://avatars.githubusercontent.com/u/148733473?s=400&u=bae9efff8f218be3140167a85a746aa0c4b36c65&v=4',
+    ],
   },
 ];
 
