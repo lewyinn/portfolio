@@ -48,7 +48,7 @@ Ingin menjalankan portofolio ini di mesin lokal Anda? Ikuti langkah-langkah beri
 
 1. **Kloning Repositori**  
    ```bash
-   git clone https://github.com/nama-pengguna/portofolio-anda.git
+   git clone https://github.com/lewyinn/portofolio.git
    cd portofolio-anda
    ```
 
