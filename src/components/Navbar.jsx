@@ -39,7 +39,7 @@ export function Navbar() {
     ];
 
     return (
-        <header className={`fixed w-full inset-x-0 top-0 z-50 h-20 ${isScrolled ? "backdrop-blur-md bg-black/10 shadow-md border-0 md:border-b-4 border-gray-200" : "bg-transparent"}`}>
+        <header className={`fixed w-full inset-x-0 top-0 z-50 h-20 ${isScrolled ? "backdrop-blur-md bg-black/10 shadow-md border-0 md:border-b-2 border-gray-200" : "bg-transparent"}`}>
             <nav className="container mx-auto flex h-full max-w-7xl items-center justify-between px-4 lg:px-0">
                 <a href="/" className="text-3xl text-white select-none">
                     <img src={Logo} alt="Logo" className="w-12 lg:w-14" />
@@ -85,7 +85,7 @@ export function Navbar() {
                             exit="exit"
                             variants={menuVariants}
                             transition={{ duration: 0.2 }}
-                            className={`absolute inset-x-0 top-20 z-50 shadow-lg md:hidden bg-black/80 shadow-md border-b-4 border-gray-200`}
+                            className={`absolute inset-x-0 top-20 z-50 shadow-lg md:hidden bg-black/80 border-b-4 border-gray-200`}
                         >
                             <div className="flex flex-col gap-y-4 px-4 py-4">
                                 {navLinks.map((link) => (

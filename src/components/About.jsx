@@ -29,7 +29,7 @@ const About = () => {
                     transition={{ duration: 1 }}
                     className='w-full lg:w-2/5 flex items-center justify-center'>
                     <picture>
-                        <source srcSet="/path/to/small-profile.webp" media="(max-width: 768px)" />
+                        <source srcSet={ProfileImage} media="(max-width: 768px)" />
                         <img
                             src={ProfileImage}
                             width={480}
