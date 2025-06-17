@@ -64,7 +64,7 @@ const Technologies = () => {
                     animate="animate"
                     variants={iconVariants(4)}
                     className='p-4'>
-                    <RiNextjsFill className='text-7xl text-gray-800'/>
+                    <RiNextjsFill className='text-7xl'/>
                 </motion.div>
                 <motion.div 
                     initial="initial"
