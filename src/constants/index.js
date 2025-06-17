@@ -54,7 +54,7 @@ export const PROJECTS = [
     image: project1,
     description:
       "Website untuk sistem pemilihan umum berbasis web.",
-    technologies: ["HTML", "CSS", "JavaScript"],
+    technologies: ["Next JS", "Tailwind", "Chart.js", "Data .JSON", "Bcrypt"],
     href: 'https://github.com/lewyinn/e-voting-website',
     contributors: [
       'https://avatars.githubusercontent.com/u/148733473?s=400&u=bae9efff8f218be3140167a85a746aa0c4b36c65&v=4',
