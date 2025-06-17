@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import React from 'react'
-import { RiCss3Fill, RiHtml5Fill, RiJavascriptFill, RiPhpFill, RiReactjsFill } from 'react-icons/ri';
+import { RiCss3Fill, RiHtml5Fill, RiJavascriptFill, RiNextjsFill, RiPhpFill, RiReactjsFill } from 'react-icons/ri';
 import { SiMysql } from 'react-icons/si';
 import { TbBrandLaravel } from 'react-icons/tb';
 
@@ -58,6 +58,13 @@ const Technologies = () => {
                     variants={iconVariants(2)}
                     className='p-4'>
                     <RiReactjsFill className='text-7xl text-cyan-400'/>
+                </motion.div>
+                <motion.div 
+                    initial="initial"
+                    animate="animate"
+                    variants={iconVariants(4)}
+                    className='p-4'>
+                    <RiNextjsFill className='text-7xl text-gray-800'/>
                 </motion.div>
                 <motion.div 
                     initial="initial"
