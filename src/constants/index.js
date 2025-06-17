@@ -1,6 +1,6 @@
 import project1 from "../assets/projects/project-1.webp";
 import project2 from "../assets/projects/project-2.webp";
-import project3 from "../assets/projects/project-3.webp";
+import project4 from "../assets/projects/project-4.webp";
 
 export const HERO_CONTENT =
   `Semangat Besar untuk Mempelajari Teknologi Baru demi Meningkatkan Keterampilan saya. Menciptakan Website Yang Inovatif, Fungsional, dan User-Friendly untuk Solusi Digital.`;
@@ -50,12 +50,12 @@ export const EXPERIENCES = [
 
 export const PROJECTS = [
   {
-    title: "Kalkulator",
+    title: "E-Voting App",
     image: project1,
     description:
-      "Aplikasi kalkulator untuk Perhitungan Aritmatika Dasar dan Biner.",
+      "Website untuk sistem pemilihan umum berbasis web.",
     technologies: ["HTML", "CSS", "JavaScript"],
-    href: 'https://github.com/lewyinn/calculator',
+    href: 'https://github.com/lewyinn/e-voting-website',
     contributors: [
       'https://avatars.githubusercontent.com/u/148733473?s=400&u=bae9efff8f218be3140167a85a746aa0c4b36c65&v=4',
     ],
@@ -72,12 +72,12 @@ export const PROJECTS = [
     ],
   },
   {
-    title: "Proyek Mendatang",
-    image: project3,
+    title: "ElysianHome - Furniture Store",
+    image: project4,
     description:
-      "Proyek menarik lainnya sedang dalam tahap pengembangan. Pantau terus untuk update terbaru!",
-    technologies: ["Coming Soon"],
-    href: 'https://github.com/lewyinn',
+      "E-commerce website untuk toko furnitur yang modern dan responsif.",
+    technologies: ["Laravel", "Tailwind", "MySQL", "SweetAlert", "Midtrans"],
+    href: 'https://github.com/lewyinn/laravel-elysianhome',
     contributors: [
       'https://avatars.githubusercontent.com/u/148733473?s=400&u=bae9efff8f218be3140167a85a746aa0c4b36c65&v=4',
     ],
