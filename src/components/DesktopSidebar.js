@@ -62,7 +62,7 @@ export default function DesktopSidebar() {
 
     return (
         <aside
-            className="flex flex-col w-full lg:w-[472px] shrink-0 p-4 sm:p-6 justify-between border rounded-2xl h-fit bg-white dark:bg-[#1a1a1a] border-gray-200 dark:border-gray-800 lg:sticky lg:top-10"
+            className="flex flex-col w-full lg:w-[472px] shrink-0 p-4 sm:p-6 justify-between border rounded-2xl h-fit bg-white dark:bg-[#1a1a1a] border-gray-200 dark:border-gray-800 lg:sticky lg:top-10 md:sticky md:top-10" // Menggabungkan properti sticky dan padding
         >
             <div>
                 <div className='flex items-center justify-between mb-4'>
@@ -133,7 +133,12 @@ function InfoCard({ imageUrl, title, subtitle, onPlayClick, isPlaying }) {
                         width={64}
                         height={64}
                         className="rounded-full object-cover ring-2 ring-neutral-300 dark:ring-neutral-600"
-                        priority/>
+<<<<<<< HEAD
+                        priority />
+=======
+                        priority
+                    />
+>>>>>>> 08cb26c40caccb56d5d9ba614a7c43e49fd71ef8
                     <span className="absolute -top-1 -right-1 bg-white dark:bg-neutral-800 rounded-full p-1 shadow-md">
                         <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 24 24" className="text-green-500 fill-current">
                             <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.827 17.207a.75.75 0 01-1.06 1.06c-2.096-2.097-5.503-2.097-7.599 0a.75.75 0 01-1.06-1.06C6.721 14.88 10.37 14.88 12 14.88c1.63 0 5.279 0 6.827 2.327zM12 5.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM12 16.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9zM12 12a.75.75 0 01-.75-.75V7.5a.75.75 0 011.5 0v3.75a.75.75 0 01-.75.75z"></path>

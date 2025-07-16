@@ -33,8 +33,7 @@ export default function ProjectCard({ project, index }) {
                     </p>
                     <div className="flex gap-2">
                         {project.technologies.map((tech, i) => (
-                            <span
-                                key={i}
+                            <span key={i}
                                 className="flex justify-center items-center text-xs px-2 py-1 bg-gray-300 dark:bg-gray-700 rounded-full">
                                 {tech}
                             </span>
