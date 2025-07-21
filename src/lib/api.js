@@ -18,8 +18,8 @@ export const projectData = [
             "Event Management (automated lifecycle, start/end dates, candidate management, data cleanup)",
             "User Roles (User, Admin, Guest)"
         ],
-        "timeline": "Ongoing",
-        "status": "Live",
+        "timeline": "Successfully Deployed",
+        "status": "Active",
         "team": "Individual Project",
         "featured": true
     },
@@ -42,7 +42,7 @@ export const projectData = [
             "CRUD Operations for Items (Add, Edit, Delete items by Admin)",
             "Activity Logs (optional, to track system activities)"
         ],
-        "timeline": "Ongoing",
+        "timeline": "Successfully Deployed",
         "status": "In Development",
         "team": "Individual Project",
         "featured": true
@@ -68,8 +68,8 @@ export const projectData = [
             "No external databases or backend servers required",
             "Vercel Deployment Ready"
         ],
-        "timeline": "Ongoing",
-        "status": "Live",
+        "timeline": "Successfully Deployed",
+        "status": "Active",
         "team": "Individual Project",
         "featured": true
     },
@@ -95,8 +95,56 @@ export const projectData = [
             "Profile & Password Settings",
             "Browser Rendering using spatie/browsershot"
         ],
-        "timeline": "Ongoing",
-        "status": "Live",
+        "timeline": "Successfully Deployed",
+        "status": "Active",
+        "team": "Individual Project",
+        "featured": true
+    },
+    {
+        "id": "homesync-landing-page",
+        "title": "HomeSync - Landing Page Perumahan",
+        "subtitle": "Modern housing landing page with interactive design",
+        "description": "HomeSync is a Next.js-based landing page for housing, featuring a modern design with interactive elements. It utilizes Tailwind CSS for styling, React Scroll for smooth navigation, React Icons for icons, and Framer Motion for animations.",
+        "image": "/assets/Home-Sync.PNG",
+        "category": "Landing Page",
+        "technologies": ["Next.js", "TailwindCSS", "React Scroll", "React Icons", "Framer Motion"],
+        "links": {
+            "github": "https://github.com/lewyinn/homesync",
+            "demo": "https://homesync-dusky.vercel.app/"
+        },
+        "features": [
+            "Modern and responsive design",
+            "Smooth scrolling navigation",
+            "Interactive animations",
+            "Property search functionality",
+            "Testimonial and detail sections"
+        ],
+        "timeline": "Successfully Deployed",
+        "status": "Active",
+        "team": "Individual Project",
+        "featured": true
+    },
+    {
+        "id": "aroma-cafe-landing-page",
+        "title": "Aroma Cafe - Landing Page",
+        "subtitle": "Modern cafe landing page with interactive design",
+        "description": "Aroma Cafe is a Next.js-based landing page for a cafe, featuring a modern design with interactive elements. It utilizes Tailwind CSS for styling, React Scroll for smooth navigation, React Icons for icons, and Framer Motion for animations.",
+        "image": "/assets/Aroma-Cafe.PNG",
+        "category": "Landing Page",
+        "technologies": ["Next.js", "TailwindCSS", "React Scroll", "React Icons", "Framer Motion"],
+        "links": {
+            "github": "https://github.com/lewyinn/homesync",
+            "demo": "https://aroma-cafe-one.vercel.app/"
+        },
+        "features": [
+            "Modern and responsive design",
+            "Smooth scrolling navigation",
+            "Interactive animations",
+            "Menu and reservation sections",
+            "Contact and testimonial sections"
+        ],
+        "timeline": "Successfully Deployed",
+        "status": "Active",
         "team": "Individual Project",
         "featured": true
     }
