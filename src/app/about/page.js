@@ -75,6 +75,16 @@ const certificates = [
         verifyUrl: "#",
         fileUrl: "/certificates/cert-laravel.png",
     },
+    {
+        id: "cert-5",
+        title: "GO: PEMROGRAMAN DASAR - Gamelab",
+        issuer: "Gamelab Indonesia",
+        issuedAt: "11 Maret 2026",
+        skills: ["Go", "Pemrograman Dasar"],
+        imageUrl: "/certificates/cert-go.png",
+        verifyUrl: "#",
+        fileUrl: "/certificates/cert-go.png",
+    },
 ];
 
 const formatMonth = (ym) => {
