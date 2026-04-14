@@ -74,7 +74,7 @@ export default function HomePage() {
                 <div className="absolute -top-24 -left-24 w-48 h-48 bg-blue-500/10 dark:bg-blue-500/5 blur-[80px] rounded-full group-hover:opacity-100 transition-all duration-700" />
                 
                 <p className="relative z-10 text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
-                    A passionate <span className="text-blue-700 dark:text-blue-400 font-semibold">Website Developer</span> & 
+                    A passionate <span className="text-blue-700 dark:text-blue-400 font-semibold">Fullstack Developer</span> & 
                     <span className="text-blue-700 dark:text-blue-400 font-semibold"> Graphic Designer</span> with expertise in 
                     Next.js, React.js, Laravel, PHP, MySQL, and Linux server management. 
                     Skilled in UI/UX design and network configuration (Mikrotik), 
