@@ -1,6 +1,134 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+    --color-bg-main: var(--bg-main);
+    --color-text-main: var(--text-main);
+    --color-accent-main: var(--accent-main);
+    --color-border-main: var(--border-main);
+    --color-card-bg: var(--card-bg);
+    --color-card-border: var(--card-border);
+    --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    --font-mono: var(--font-mono), ui-monospace, monospace;
+    --font-serif: var(--font-serif), Georgia, serif;
+    --font-handwritten: var(--font-handwritten), cursive;
+    
+    /* Override radii to be sharp but not too sharp */
+    --radius-3xl: 6px;
+    --radius-2xl: 6px;
+    --radius-xl: 4px;
+    --radius-lg: 4px;
+    --radius-md: 4px;
+    --radius-sm: 2px;
+}
+
+:root {
+    --bg-main: #080808;         /* Onyx Dark */
+    --text-main: #E5E4E2;       /* Alabaster Grey */
+    --accent-main: #536878;     /* Blue Slate */
+    --border-main: rgba(255, 255, 255, 0.22);
+    --card-bg: #121212;         /* Dark Card */
+    --card-border: rgba(255, 255, 255, 0.12);
+    --surface-texture: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 1.5px);
+    --bg-gradient: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 65%), linear-gradient(to bottom, #080808, #080808);
+}
+
+.dark {
+    --bg-main: #080808;
+    --text-main: #E5E4E2;
+    --accent-main: #536878;
+    --border-main: rgba(255, 255, 255, 0.22);
+    --card-bg: #121212;
+    --card-border: rgba(255, 255, 255, 0.12);
+    --surface-texture: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 1.5px);
+    --bg-gradient: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 65%), linear-gradient(to bottom, #080808, #080808);
+}
+
+body {
+    background-color: var(--bg-main);
+    background-image: var(--bg-gradient);
+    color: var(--text-main);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.bg-dot-grid {
+    background-image: 
+        var(--surface-texture), 
+        repeating-radial-gradient(circle at 50% 115%, transparent 0px, transparent 24px, rgba(255, 255, 255, 0.015) 25px, transparent 26px),
+        var(--bg-gradient);
+    background-size: 20px 20px, 100% 100%, 100% 100%;
+    background-attachment: scroll, fixed, fixed;
+}
+
+/* hexaa.sh brackets menu link styles */
+.nav-link {
+    font-family: var(--font-mono), monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-main);
+    opacity: 0.6;
+    transition: opacity 0.25s ease, color 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .nav-link {
+        font-size: 14px;
+    }
+}
+
+.nav-link:hover, .nav-link.active {
+    opacity: 1;
+    color: var(--text-main);
+}
+
+.nav-link::before {
+    content: "[";
+    opacity: 0;
+    transform: translateX(4px);
+    transition: all 0.2s ease;
+    margin-right: 4px;
+}
+
+.nav-link::after {
+    content: "]";
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: all 0.2s ease;
+    margin-left: 4px;
+}
+
+.nav-link:hover::before, .nav-link.active::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* irtideath vertical list capability-row */
+.capability-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--card-border);
+    transition: all 0.25s ease;
+    font-family: var(--font-mono), monospace;
+    font-size: 12px;
+    color: var(--text-main);
+    opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+    .capability-row {
+        font-size: 14px;
+    }
+}
 
 @layer utilities {
     .animate-fade-in-slide {
@@ -10,9 +138,8 @@
     @keyframes fadeInSlide {
         from {
             opacity: 0;
-            transform: translateX(-50px);
+            transform: translateX(-30px);
         }
-
         to {
             opacity: 1;
             transform: translateX(0);

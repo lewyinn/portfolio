@@ -1,132 +1,213 @@
-import { Code, Code2Icon, PenToolIcon, ServerCogIcon, Workflow } from 'lucide-react';
-import { techStacks } from '@/lib/techStacks';
-import CareerCard from '@/components/CareerCard';
-import ClientTechIcon from '@/components/ClientTechIcon';
-import Script from 'next/script';
+"use client";
 
-export const metadata = {
-  title: 'Moch. Ridho Kurniawan - Portfolio & Full Stack Developer',
-  description: 'Website resmi Moch. Ridho Kurniawan - Web Developer, UI/UX Designer, dan IT Enthusiast dari Bogor.',
-  keywords: ['Moch. Ridho Kurniawan', 'Ridho Kurniawan', 'Portfolio Developer', 'Web Developer Bogor', 'Fullstack Developer Indonesia'],
-  openGraph: {
-    title: 'Moch. Ridho Kurniawan - Portfolio & Full Stack Developer',
-    description: 'Website resmi Moch. Ridho Kurniawan, Web Developer dari Bogor dengan spesialisasi Full Stack dan UI/UX Design.',
-    url: 'https://mrdhkrnwn.vercel.app/',
-    siteName: 'Ridho Kurniawan Portfolio',
-    images: [
-      {
-        url: 'https://mrdhkrnwn.vercel.app/assets/Logo.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Moch. Ridho Kurniawan - Portfolio',
-      },
-    ],
-    locale: 'id_ID',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Moch. Ridho Kurniawan - Portfolio',
-    description: 'Developer Full Stack dan Desainer UI/UX dari Bogor.',
-    images: ['https://mrdhkrnwn.vercel.app/assets/Logo.webp'],
-  },
-};
+import { useState } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { Code2Icon, PenToolIcon, ServerCogIcon, ArrowRight } from "lucide-react";
+import { projectData as projects } from "@/lib/api";
+import ProjectCard from "@/components/ProjectCard";
+import Script from "next/script";
 
 export default function HomePage() {
-  return (
-    <>
-      <Script id="structured-data" type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Moch. Ridho Kurniawan",
-          "url": "https://mrdhkrnwn.vercel.app/",
-          "image": "https://mrdhkrnwn.vercel.app/profile.jpg",
-          "sameAs": [
-            "https://github.com/lewyinn",
-            "https://instagram.com/mrdhkrnwn",
-            "https://www.linkedin.com/in/moch-ridho-kurniawan"
-          ],
-          "jobTitle": "Full Stack Developer & UI/UX Designer",
-          "description": "Moch. Ridho Kurniawan adalah Web Developer dan Desainer UI/UX dari Bogor, berpengalaman dalam pengembangan web, backend, dan desain digital.",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Bogor",
-            "addressRegion": "Jawa Barat",
-            "addressCountry": "ID"
-          }
-        })}
-      </Script>
+    const [activeRole, setActiveRole] = useState("backend");
 
-      <div className="w-full max-w-2xl lg:max-w-4xl space-y-8">
-        <section className='border-b pb-8 space-y-4 border-gray-300 dark:border-gray-800'>
-            {/* Judul dengan transisi warna yang halus */}
-            <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
-                Hi, I&apos;m <span className="text-blue-600 dark:text-blue-500">Ridho</span> 👋
-            </h1>
+    const rolesData = [
+        {
+            id: "backend",
+            title: "Backend Development",
+            desc: "Creating robust and scalable server logic, database structures, APIs, and microservices with strong runtime environments.",
+            tools: ["Node.js", "Python", "Java", "PHP", "MySQL", "PostgreSQL", "Cassandra"]
+        },
+        {
+            id: "frontend",
+            title: "Frontend Development",
+            desc: "Building highly interactive, responsive, and pixel-perfect user interfaces with optimized rendering performance.",
+            tools: ["HTML", "CSS", "JavaScript", "React.js", "Next.js", "Tailwind CSS", "Bootstrap"]
+        },
+        {
+            id: "design",
+            title: "UI/UX & Graphic Design",
+            desc: "Crafting modern layouts, brand assets, vector components, and interactive prototypes with a focus on ease-of-use.",
+            tools: ["Figma", "Photoshop"]
+        },
+        {
+            id: "network",
+            title: "Server & Networks",
+            desc: "Deploying and managing production servers in Linux environment, docker virtualization, and Mikrotik network configs.",
+            tools: ["Linux", "WEB Server", "Mail Server", "DNS Server", "Docker", "Ansible", "Mikrotik", "Fiber Optic"]
+        }
+    ];
 
-            {/* Container Paragraph */}
-            <div className="relative group overflow-hidden p-6 md:p-8 rounded-xl 
-                            bg-gray-100/50 dark:bg-[#1a1a1a] 
-                            border border-gray-200 dark:border-gray-800
-                            transition-all duration-500 hover:border-blue-500/30">
+    const capabilitiesList = [
+        { name: "React.js / Next.js", desc: "Building modern, responsive, and high-performance web applications." },
+        { name: "Node.js (Express / NestJS)", desc: "Developing scalable REST APIs and backend services" },
+        { name: "Python / Java Core", desc: "Programming, automation, and object-oriented application development." },
+        { name: "Laravel (PHP)", desc: "Building secure and maintainable MVC web applications." },
+        { name: "Linux / Web Server / Docker / Ansible", desc: "Infrastructure management, containerization, and production deployment with automation." },
+        { name: "Mikrotik RouterOS", desc: "Network configuration, routing, firewall, and wireless infrastructure." },
+        { name: "Figma UI/UX Design", desc: "Designing intuitive user interfaces and interactive prototypes." }
+    ];
 
-                <div className="absolute -top-24 -left-24 w-48 h-48 bg-blue-500/10 dark:bg-blue-500/5 blur-[80px] rounded-full group-hover:opacity-100 transition-all duration-700" />
+    const activeRoleData = rolesData.find(r => r.id === activeRole) || rolesData[0];
+    const featuredProjects = projects.filter(p => p.featured).slice(0, 2);
+
+    return (
+        <>
+            <Script id="structured-data" type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Person",
+                    "name": "Moch. Ridho Kurniawan",
+                    "url": "https://mrdhkrnwn.vercel.app/",
+                    "image": "https://mrdhkrnwn.vercel.app/profile.jpg",
+                    "sameAs": [
+                        "https://github.com/lewyinn",
+                        "https://instagram.com/mrdhkrnwn",
+                        "https://www.linkedin.com/in/moch-ridho-kurniawan"
+                    ],
+                    "jobTitle": "Full Stack Developer",
+                    "description": "Moch. Ridho Kurniawan adalah Web Developer dan Desainer UI/UX dari Bogor, berpengalaman dalam pengembangan web, backend, dan desain digital.",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Bogor",
+                        "addressRegion": "Jawa Barat",
+                        "addressCountry": "ID"
+                    }
+                })}
+            </Script>
+
+            <div className="space-y-12 w-full max-w-full">
                 
-                <p className="relative z-10 text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
-                    A passionate <span className="text-blue-700 dark:text-blue-400 font-semibold">Fullstack Developer</span> & 
-                    <span className="text-blue-700 dark:text-blue-400 font-semibold"> Graphic Designer</span> with expertise in 
-                    Next.js, React.js, Laravel, PHP, MySQL, and Linux server management. 
-                    Skilled in UI/UX design and network configuration (Mikrotik), 
-                    blending creativity with technical solutions to build impactful digital experiences.
-                </p>
+                {/* Greeting & Biography Column */}
+                <section className="space-y-6">
+                    <h1 className="font-serif italic text-6xl md:text-8xl text-text-main font-normal tracking-tight leading-none">
+                        hello,
+                    </h1>
+                    <p className="text-base md:text-lg lg:text-xl text-text-main opacity-80 leading-relaxed w-full font-medium">
+                        i&apos;m <span className="font-bold">Moch. Ridho Kurniawan</span>, a passionate <span className="underline decoration-accent-main decoration-2 font-bold">Fullstack Developer</span> specializing in backend architecture, web development, and now focus on thingsboard IoT platform.
+                    </p>
+                </section>
 
-                {/* Aksesori Dekoratif: Hanya terlihat jelas di Dark mode sebagai pemanis */}
-                <div className="absolute bottom-4 right-4 w-12 h-12 border-b-2 border-l-2 border-gray-300 dark:border-gray-800 rounded-bl-lg opacity-30 dark:opacity-50" />
+                {/* Philosophy Box (hexaa style) */}
+                <section className="w-full">
+                    <div className="border border-card-border bg-[#0D0D0D]/40 backdrop-blur-sm p-5 rounded-md w-full relative">
+                        <h3 className="font-mono text-xs md:text-sm font-bold uppercase tracking-wider text-text-main opacity-60 mb-2">[ philosophy ]</h3>
+                        <p className="text-xs md:text-sm font-mono text-text-main opacity-60 leading-relaxed italic">
+                            &quot;I&apos;d rather ship slow and solid than fast and fragile. Every project is an opportunity to build something that feels precise, calm, and durable, not just finished.&quot;
+                        </p>
+                        <Link href="/about" className="inline-block mt-3 text-xs md:text-sm font-mono text-accent-main hover:underline">
+                            [/about]
+                        </Link>
+                    </div>
+                </section>
+
+                {/* Interactive Ticker/Role Selector (hexaa style) */}
+                <section className="space-y-4">
+                    <span className="text-xs md:text-sm font-mono font-bold uppercase tracking-widest opacity-40 block">
+                        [ capabilities selector ]
+                    </span>
+                    
+                    <div className="flex overflow-x-auto gap-4 border-b border-card-border/60 pb-3 scrollbar-none font-mono text-xs md:text-sm">
+                        {rolesData.map(role => (
+                            <button
+                                key={role.id}
+                                onClick={() => setActiveRole(role.id)}
+                                className={`pb-2 px-1 whitespace-nowrap cursor-pointer transition-all border-b-2 ${activeRole === role.id ? 'border-accent-main text-text-main font-bold' : 'border-transparent text-text-main opacity-50 hover:opacity-100'}`}
+                            >
+                                ✦ {role.title.toLowerCase()}
+                            </button>
+                        ))}
+                    </div>
+
+                    <div className="border border-card-border bg-[#0D0D0D]/60 backdrop-blur-sm rounded-md p-6 min-h-[140px] flex flex-col justify-between gap-4">
+                        <div>
+                            <h4 className="text-sm md:text-base font-mono font-bold text-text-main uppercase tracking-wider">{activeRoleData.title}</h4>
+                            <p className="text-xs md:text-sm font-mono text-text-main opacity-70 mt-2 leading-relaxed">{activeRoleData.desc}</p>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5 pt-2 border-t border-card-border/40">
+                            {activeRoleData.tools.map(tool => (
+                                <span key={tool} className="text-xs md:text-sm font-mono bg-[#121212] border border-card-border px-2 py-0.5 rounded-sm opacity-80">
+                                    [{tool.toLowerCase()}]
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Featured Projects Banner Box & macOS Wrapper (Combined hexaa/azure style) */}
+                <section className="space-y-6">
+                    <div className="border border-card-border bg-[#0D0D0D]/60 backdrop-blur-sm rounded-md overflow-hidden">
+                        <div className="p-6 border-b border-card-border bg-[#101010]/80 flex justify-between items-start gap-4">
+                            <div>
+                                <h2 className="text-2xl font-mono font-bold tracking-tight uppercase">[ projects ]</h2>
+                                <p className="font-handwritten text-xl text-neutral-400 mt-1">cozy as a cat taking a nap 💤</p>
+                            </div>
+                            <Link href="/projects" className="font-mono text-xs md:text-sm text-accent-main hover:underline mt-1">
+                                [/projects-all]
+                            </Link>
+                        </div>
+                        <div className="flex justify-between items-center px-4 py-2 text-xs md:text-sm font-mono opacity-50 bg-[#080808]/40">
+                            <span>↓ explorer for content</span>
+                            <span>ready for use ↓</span>
+                        </div>
+                    </div>
+
+                    {/* macOS Terminal style container (homepage version) */}
+                    <div className="border border-card-border bg-[#0D0D0D]/40 backdrop-blur-sm rounded-md overflow-hidden shadow-xl">
+                        
+                        {/* macOS titlebar */}
+                        <div className="flex justify-between items-center px-4 py-3 border-b border-card-border bg-[#101010]/80">
+                            {/* Traffic lights */}
+                            <div className="flex gap-2">
+                                <span className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E] block"></span>
+                                <span className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123] block"></span>
+                                <span className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29] block"></span>
+                            </div>
+                            {/* Center Path */}
+                            <span className="font-mono text-xs md:text-sm text-text-main opacity-50 tracking-wider">
+                                ~/featured-projects
+                            </span>
+                            {/* Link Action */}
+                            <Link href="/projects" className="font-mono text-xs text-accent-main hover:underline">
+                                [view_all]
+                            </Link>
+                        </div>
+
+                        {/* Main projects grid inside terminal */}
+                        <div className="p-6 md:p-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {featuredProjects.map((project, index) => (
+                                    <ProjectCard key={project.id} project={project} index={index} />
+                                ))}
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                {/* Capabilities List (irtideath style) */}
+                <section className="space-y-4">
+                    <span className="text-xs md:text-sm font-mono font-bold uppercase tracking-widest text-accent-main block">
+                        [ technical capabilities list ]
+                    </span>
+                    
+                    <div className="flex flex-col border-t border-card-border/60">
+                        {capabilitiesList.map((cap, i) => (
+                            <div 
+                                key={i} 
+                                className="group flex justify-between items-center w-full py-4 px-4 border-b border-card-border/40 hover:bg-[#0D0D0D]/60 hover:pl-8 transition-all duration-300 relative overflow-hidden"
+                            >
+                                <span className="flex items-center gap-2">
+                                    <span className="text-accent-main opacity-40 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300">→</span>
+                                    <span className="text-sm md:text-base font-semibold group-hover:text-text-main transition-colors">{cap.name.toLowerCase()}</span>
+                                </span>
+                                <span className="text-xs md:text-sm opacity-40 italic group-hover:opacity-80 transition-opacity font-mono text-end">{cap.desc}</span>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
             </div>
-        </section>
-
-        <section className='border-b pb-6 space-y-3 border-gray-300 dark:border-gray-700'>
-          <div className='flex gap-4 items-center text-gray-900 dark:text-white'>
-            <Workflow size={24} />
-            <h2 className="text-2xl font-semibold">My Journey & Focus</h2>
-          </div>
-          <div className="flex flex-wrap gap-6">
-            <CareerCard
-              title="Web Development"
-              deskripsi="Building scalable and modern web applications with focus on both front-end and back-end technologies."
-            >
-              <Code2Icon size={32} className="text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300" />
-            </CareerCard>
-
-            <CareerCard
-              title="Server & Network Management"
-              deskripsi="Deploying and optimizing servers on Linux environments with Apache/Nginx, and configuring networks with Mikrotik."
-            >
-              <ServerCogIcon size={32} className="text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300" />
-            </CareerCard>
-
-            <CareerCard
-              title="UI/UX & Graphics Design"
-              deskripsi="Designing intuitive, engaging, and visually appealing user interfaces and digital assets that enhance user experience."
-            >
-              <PenToolIcon size={32} className="text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300" />
-            </CareerCard>
-          </div>
-        </section>
-
-        <section className='space-y-3'>
-          <div className='flex gap-4 items-center text-gray-900 dark:text-white'>
-            <Code size={24} />
-            <h2 className="text-2xl font-semibold">Tech Stacks</h2>
-          </div>
-          <div className="flex flex-wrap items-center justify-start gap-4">
-            {techStacks.map((item, index) => (
-              <ClientTechIcon key={index} icon={item.icon} color={item.color} />
-            ))}
-          </div>
-        </section>
-      </div>
-    </>
-  );
+        </>
+    );
 }

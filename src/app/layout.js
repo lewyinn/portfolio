@@ -1,18 +1,39 @@
 import './globals.css';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Plus_Jakarta_Sans, JetBrains_Mono, Instrument_Serif, Caveat } from 'next/font/google';
 import ClientLayoutWrapper from '@/components/ClientLayoutWrapper';
 import LoadingScreen from '@/components/LoadingScreen';
 
-const font = Plus_Jakarta_Sans({ subsets: ['latin'] });
+const sansFont = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+});
+
+const monoFont = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+});
+
+const serifFont = Instrument_Serif({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  weight: ['400'],
+  variable: '--font-serif',
+});
+
+const handwrittenFont = Caveat({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-handwritten',
+});
 
 export const metadata = {
-  title: 'Ridho Portfolio',
-  description: 'Portfolio Ridho Kurniawan - Full Stack Developer',
+  title: 'Moch. Ridho Kurniawan - Portfolio',
+  description: 'Portfolio Moch. Ridho Kurniawan - Full Stack Developer',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <link
           rel="preload"
@@ -23,7 +44,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/assets/Logo.webp" type="image/webp" />
         <meta name="google-site-verification" content="XkYQMyRxx-oTV-fMvdx76vXBFcM_fZqrOl6J_wdoFeo" />
       </head>
-      <body className={`${font.className} min-h-screen bg-gray-100 dark:bg-[#121212] text-gray-900 dark:text-white px-4 pb-20 transition-colors duration-300`}>
+      <body className={`${sansFont.variable} ${monoFont.variable} ${serifFont.variable} ${handwrittenFont.variable} font-sans min-h-screen bg-bg-main text-text-main transition-colors duration-300`}>
         <LoadingScreen />
         <ClientLayoutWrapper>
           {children}

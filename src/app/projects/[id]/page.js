@@ -1,20 +1,21 @@
-import { projectData } from '@/lib/api';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Github, ExternalLink, ChevronLeft, CheckCircle2 } from "lucide-react";
-import Script from 'next/script';
+import { projectData } from "@/lib/api";
+import Image from "next/image";
+import Link from "next/link";
+import { Github, ExternalLink, ArrowLeft } from "lucide-react";
+import Script from "next/script";
+import ClapButton from "@/components/ClapButton";
 
-// --- WAJIB DIEKSPOR UNTUK STATIC EXPORT ---
-// Fungsi ini memberi tahu Next.js ID apa saja yang harus di-build
+// --- Required for static HTML export ---
 export async function generateStaticParams() {
     return projectData.map((project) => ({
-        id: project.id.toString(), // Pastikan dalam bentuk string
+        id: project.id.toString(),
     }));
 }
 
-// Metadata SEO Dinamis
+// Dynamic SEO Metadata
 export async function generateMetadata({ params }) {
-    const { id } = params;
+    const resolvedParams = await params;
+    const { id } = resolvedParams;
     const project = projectData.find(p => p.id === id);
 
     if (!project) return { title: 'Project Not Found' };
@@ -25,11 +26,18 @@ export async function generateMetadata({ params }) {
     };
 }
 
-export default function ProjectDetailPage({ params }) {
-    const { id } = params;
+export default async function ProjectDetailPage({ params }) {
+    const resolvedParams = await params;
+    const { id } = resolvedParams;
     const project = projectData.find(p => p.id === id);
 
-    if (!project) return <div className="p-10 text-center dark:text-white">Project Not Found</div>;
+    if (!project) {
+        return (
+            <div className="p-10 text-center font-mono text-sm text-[#E5E4E2]">
+                [!] Project Not Found
+            </div>
+        );
+    }
 
     return (
         <>
@@ -44,83 +52,145 @@ export default function ProjectDetailPage({ params }) {
                 })}
             </Script>
 
-            <main className="w-full max-w-2xl lg:max-w-4xl space-y-10">
+            <main className="w-full max-w-full space-y-8 text-text-main">
+                
                 {/* Back Link */}
                 <Link 
                     href="/projects" 
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-blue-500 dark:text-gray-400 transition-colors group"
+                    className="inline-flex items-center gap-2 font-mono text-xs md:text-sm text-text-main opacity-65 hover:opacity-100 transition-opacity"
                 >
-                    <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                    <span>Back to Projects</span>
+                    <ArrowLeft size={14} />
+                    <span>back to projects</span>
                 </Link>
 
-                {/* Header Section */}
-                <div className="space-y-6">
-                    <div className="flex flex-wrap items-center gap-3">
-                        <span className="px-4 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-widest rounded-full border border-blue-500/20">
-                            {project.category}
-                        </span>
-                        <span className="px-4 py-1 text-xs font-bold uppercase tracking-widest rounded-full border bg-emerald-500/10 text-emerald-600 border-emerald-500/20">
-                            {project.status || 'Completed'}
-                        </span>
-                    </div>
-                    <h1 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white leading-tight">
+                {/* Header Section (azure style) */}
+                <div className="space-y-4">
+                    <span className="font-mono text-xs text-accent-main font-bold uppercase tracking-widest block">
+                        // project
+                    </span>
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-text-main leading-tight">
                         {project.title}
                     </h1>
+
+                    {/* Meta Dates & Claps Widget */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2 pb-6 border-b border-card-border/60">
+                        <div className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs opacity-60">
+                            <span>Created: November 4, 2025</span>
+                            <span className="hidden sm:inline">|</span>
+                            <span>Updated: July 5, 2026</span>
+                        </div>
+
+                        {/* Interactive Clap Button (azure style client component) */}
+                        <ClapButton />
+                    </div>
                 </div>
 
-                {/* Featured Image */}
-                <div className="relative aspect-video rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-2xl">
-                    <Image src={project.image} alt={project.title} fill className="object-cover" priority />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/40 to-transparent" />
+                {/* Featured Screenshot Image (azure style) */}
+                <div className="relative aspect-video rounded-md overflow-hidden border border-card-border bg-[#121212]/10 shadow-lg">
+                    <Image 
+                        src={project.image} 
+                        alt={project.title} 
+                        fill 
+                        className="object-cover" 
+                        priority 
+                    />
                 </div>
 
-                {/* Content Grid */}
+                {/* Two Column Layout (azure style) */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="md:col-span-2 space-y-8">
-                        <section className="bg-gray-50/50 dark:bg-[#1a1a1a] rounded-3xl p-8 border border-gray-100 dark:border-gray-800">
-                            <h2 className="text-2xl font-bold dark:text-white mb-4">Overview</h2>
-                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg italic">
-                                &quot;{project.description}&quot;
-                            </p>
-                        </section>
-
-                        <section className="bg-gray-50/50 dark:bg-[#1a1a1a] rounded-3xl p-8 border border-gray-100 dark:border-gray-800 space-y-6">
-                            <h2 className="text-2xl font-bold dark:text-white">Features</h2>
-                            <div className="grid grid-cols-1 gap-4">
-                                {project.features?.map((feature, i) => (
-                                    <div key={i} className="flex items-start gap-3 p-4 bg-white dark:bg-[#242424] rounded-2xl border border-gray-100 dark:border-gray-700/50 group">
-                                        <CheckCircle2 className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                                        <span className="text-gray-700 dark:text-gray-300 font-medium">{feature}</span>
-                                    </div>
-                                ))}
+                    
+                    {/* Left Column: Project Description */}
+                    <div className="md:col-span-2 space-y-6">
+                        <div className="space-y-4">
+                            <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-accent-main">// project description</h3>
+                            <div className="font-mono text-xs md:text-sm text-text-main opacity-85 leading-relaxed space-y-4">
+                                <p className="font-medium text-sm md:text-base leading-relaxed italic">
+                                    &quot;{project.description}&quot;
+                                </p>
+                                <p>
+                                    This platform was structured using scalable modular patterns to guarantee responsiveness, minimal loading lag, and seamless frontend integrations.
+                                </p>
                             </div>
-                        </section>
+                        </div>
+
+                        {/* Features bullet points */}
+                        {project.features && project.features.length > 0 && (
+                            <div className="space-y-4 pt-4 border-t border-card-border/40">
+                                <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-accent-main">// key features</h3>
+                                <ul className="font-mono text-xs md:text-sm text-text-main opacity-80 space-y-2 list-none">
+                                    {project.features.map((feature, i) => (
+                                        <li key={i} className="flex items-start gap-2.5">
+                                            <span className="text-accent-main">✦</span>
+                                            <span>{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
                     </div>
 
-                    <aside className="space-y-6">
-                        <div className="bg-gray-50/50 dark:bg-[#1a1a1a] rounded-3xl p-6 border border-gray-100 dark:border-gray-800">
-                            <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-4">Stack</h3>
-                            <div className="flex flex-wrap gap-2">
-                                {project.technologies.map((tech, i) => (
-                                    <span key={i} className="px-3 py-1 bg-white dark:bg-[#242424] text-gray-700 dark:text-gray-300 text-[10px] font-bold rounded-lg border border-gray-100 dark:border-gray-700">
-                                        {tech}
-                                    </span>
-                                ))}
+                    {/* Right Column: Actions & Metadata */}
+                    <div className="md:col-span-1 space-y-8">
+                        
+                        {/* Quick Links (azure style) */}
+                        <div className="space-y-4">
+                            <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-accent-main">// quick links</h3>
+                            <div className="flex flex-col gap-2.5">
+                                {project.links?.demo && (
+                                    <a 
+                                        href={project.links.demo.startsWith('http') ? project.links.demo : `https://${project.links.demo}`} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className="flex items-center justify-center gap-2 w-full py-2.5 bg-text-main text-bg-main hover:bg-[#E5E4E2]/90 font-mono text-xs font-bold uppercase tracking-wider rounded-md transition-all cursor-pointer shadow-md"
+                                    >
+                                        <ExternalLink size={14} /> Visit Website
+                                    </a>
+                                )}
+                                {project.links?.github && (
+                                    <a 
+                                        href={project.links.github.startsWith('http') ? project.links.github : `https://github.com/${project.links.github}`} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className="flex items-center justify-center gap-2 w-full py-2.5 border border-card-border hover:bg-[#1A1A1A] text-text-main font-mono text-xs uppercase tracking-wider rounded-md transition-all cursor-pointer"
+                                    >
+                                        <Github size={14} /> Source Code
+                                    </a>
+                                )}
                             </div>
                         </div>
 
-                        {/* Actions */}
-                        <div className="space-y-3">
-                            <a href={`https://${project.links?.demo}`} target="_blank" className="flex items-center justify-center gap-2 w-full py-4 bg-blue-600 text-white rounded-2xl font-bold shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition-all active:scale-95">
-                                <ExternalLink size={18} /> Preview
-                            </a>
-                            <a href={`https://github.com/${project.links?.github}`} target="_blank" className="flex items-center justify-center gap-2 w-full py-4 bg-gray-100 dark:bg-[#1a1a1a] text-gray-900 dark:text-white rounded-2xl font-bold border border-gray-200 dark:border-gray-800 hover:bg-gray-200 dark:hover:bg-[#242424] transition-all">
-                                <Github size={18} /> Source
-                            </a>
+                        {/* Project Info Table (azure style) */}
+                        <div className="space-y-4">
+                            <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-accent-main">// project info</h3>
+                            <div className="border border-card-border rounded-md bg-[#0D0D0D]/60 p-5 font-mono text-xs space-y-4">
+                                <div className="flex justify-between border-b border-card-border/40 pb-2">
+                                    <span className="opacity-55">STATUS</span>
+                                    <span className="font-bold text-accent-main uppercase">{project.status}</span>
+                                </div>
+                                <div className="flex justify-between border-b border-card-border/40 pb-2">
+                                    <span className="opacity-55">ROLE</span>
+                                    <span className="font-bold">{project.team || 'Developer'}</span>
+                                </div>
+                                <div className="flex justify-between border-b border-card-border/40 pb-2">
+                                    <span className="opacity-55">TIMELINE</span>
+                                    <span className="font-bold">{project.timeline || '2026'}</span>
+                                </div>
+                                <div className="space-y-2">
+                                    <span className="opacity-55 block">TECHNOLOGIES</span>
+                                    <div className="flex flex-wrap gap-1.5">
+                                        {project.technologies.map((tech) => (
+                                            <span key={tech} className="bg-[#121212] border border-card-border px-1.5 py-0.5 rounded-sm opacity-80 text-[10px]">
+                                                {tech.toLowerCase()}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </aside>
+
+                    </div>
                 </div>
+
             </main>
         </>
     );
